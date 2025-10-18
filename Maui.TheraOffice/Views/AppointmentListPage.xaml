@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Maui.TheraOffice.ViewModels"
+             x:Class="Maui.TheraOffice.Views.AppointmentListPage"
+             Title="Appointments"
+             x:DataType="viewmodels:AppointmentListViewModel"
+             Loaded="ContentPage_Loaded">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add Appointment" Command="{Binding AddAppointmentCommand}" />
+    </ContentPage.ToolbarItems>
+    <VerticalStackLayout Padding="10">
+        <CollectionView ItemsSource="{Binding Appointments}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding StartTime}" FontSize="Medium" VerticalOptions="Center" />
+                        <Button Grid.Column="1" Text="Edit" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:AppointmentListViewModel}}, Path=EditAppointmentCommand}" CommandParameter="{Binding .}" Margin="5,0" />
+                        <Button Grid.Column="2" Text="Delete" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:AppointmentListViewModel}}, Path=DeleteAppointmentCommand}" CommandParameter="{Binding .}" BackgroundColor="Red" TextColor="White" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

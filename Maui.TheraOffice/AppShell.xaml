@@ -3,12 +3,22 @@
     x:Class="Maui.TheraOffice.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Maui.TheraOffice"
+    xmlns:local="clr-namespace:Maui.TheraOffice.Views"
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Title="Patients"
+        ContentTemplate="{DataTemplate local:PatientListPage}"
+        Route="PatientListPage" />
+
+    <ShellContent
+        Title="Physicians"
+        ContentTemplate="{DataTemplate local:PhysicianListPage}"
+        Route="PhysicianListPage" />
+
+    <ShellContent
+        Title="Appointments"
+        ContentTemplate="{DataTemplate local:AppointmentListPage}"
+        Route="AppointmentListPage" />
 
 </Shell>
