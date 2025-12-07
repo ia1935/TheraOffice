@@ -1,14 +1,19 @@
-namespace Maui.TheraOffice.Models
+using System;
+using System.Collections.Generic;
+
+namespace MAUI.Theraoffice.Models
 {
     public class Patient
     {
         public Guid Id { get; set; } = Guid.NewGuid();
-        public string Name { get; set; }
-        public string Address { get; set; }
-        public DateTime Birthdate { get; set; }
-        public string Race { get; set; }
-        public string Gender { get; set; }
-        public List<string> Diagnoses { get; set; } = new List<string>();
-        public List<string> Prescriptions { get; set; } = new List<string>();
+        public string FirstName { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
+        public string Address { get; set; } = string.Empty;
+        public DateTime BirthDate { get; set; } = DateTime.Now.AddYears(-30);
+        public string Race { get; set; } = string.Empty;
+        public string Gender { get; set; } = string.Empty;
+        public List<MedicalNote> Notes { get; set; } = new();
+
+        public string DisplayName => $"{FirstName} {LastName}";
     }
 }

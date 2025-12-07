@@ -1,24 +1,26 @@
-﻿namespace Maui.TheraOffice;
-
-public partial class MainPage : ContentPage
+﻿namespace MAUI.Theraoffice
 {
-	int count = 0;
+    public partial class MainPage : ContentPage
+    {
+        public MainPage()
+        {
+            InitializeComponent();
+        }
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+        async void OnPatients(object? sender, System.EventArgs e)
+        {
+            await Shell.Current.GoToAsync("patients");
+        }
 
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-		count++;
+        async void OnPhysicians(object? sender, System.EventArgs e)
+        {
+            await Shell.Current.GoToAsync("physicians");
+        }
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+        async void OnAppointments(object? sender, System.EventArgs e)
+        {
+            await Shell.Current.GoToAsync("appointments");
+        }
+    }
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
 }
-

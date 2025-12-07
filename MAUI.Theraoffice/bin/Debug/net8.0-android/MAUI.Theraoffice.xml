@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MAUI.Theraoffice</name>
+    </assembly>
+    <members>
+        <member name="M:MAUI.Theraoffice.Services.IClinicStore.TryAddAppointmentAsync(MAUI.Theraoffice.Models.Appointment)">
+            <summary>
+            Try to add appointment. Returns null on success or error message on failure.
+            </summary>
+        </member>
+    </members>
+</doc>

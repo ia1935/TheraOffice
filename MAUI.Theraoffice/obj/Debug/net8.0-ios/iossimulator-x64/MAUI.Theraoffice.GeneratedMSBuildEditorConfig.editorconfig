@@ -1,0 +1,85 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0-ios
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MAUI.Theraoffice
+build_property.ProjectDir = C:\Users\vboxuser\source\repos\MAUI.Theraoffice\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/vboxuser/source/repos/MAUI.Theraoffice/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MAUI.Theraoffice.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[C:/Users/vboxuser/source/repos/MAUI.Theraoffice/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MAUI.Theraoffice.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[C:/Users/vboxuser/source/repos/MAUI.Theraoffice/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MAUI.Theraoffice.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+
+[C:/Users/vboxuser/source/repos/MAUI.Theraoffice/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MAUI.Theraoffice.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[C:/Users/vboxuser/source/repos/MAUI.Theraoffice/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MAUI.Theraoffice.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/Users/vboxuser/source/repos/MAUI.Theraoffice/Views/AppointmentEditPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MAUI.Theraoffice.Views.AppointmentEditPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AppointmentEditPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AppointmentEditPage.xaml
+
+[C:/Users/vboxuser/source/repos/MAUI.Theraoffice/Views/AppointmentsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MAUI.Theraoffice.Views.AppointmentsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AppointmentsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AppointmentsPage.xaml
+
+[C:/Users/vboxuser/source/repos/MAUI.Theraoffice/Views/PatientEditPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MAUI.Theraoffice.Views.PatientEditPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\PatientEditPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\PatientEditPage.xaml
+
+[C:/Users/vboxuser/source/repos/MAUI.Theraoffice/Views/PatientsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MAUI.Theraoffice.Views.PatientsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\PatientsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\PatientsPage.xaml
+
+[C:/Users/vboxuser/source/repos/MAUI.Theraoffice/Views/PhysicianEditPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MAUI.Theraoffice.Views.PhysicianEditPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\PhysicianEditPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\PhysicianEditPage.xaml
+
+[C:/Users/vboxuser/source/repos/MAUI.Theraoffice/Views/PhysiciansPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MAUI.Theraoffice.Views.PhysiciansPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\PhysiciansPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\PhysiciansPage.xaml

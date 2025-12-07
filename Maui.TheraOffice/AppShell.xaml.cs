@@ -1,15 +1,21 @@
-using Maui.TheraOffice.Views;
+﻿using MAUI.Theraoffice.Views;
+using Microsoft.Maui.Controls;
 
-namespace Maui.TheraOffice;
-
-public partial class AppShell : Shell
+namespace MAUI.Theraoffice
 {
-    public AppShell()
+    public partial class AppShell : Shell
     {
-        InitializeComponent();
+        public AppShell()
+        {
+            InitializeComponent();
 
-        Routing.RegisterRoute(nameof(PatientDetailPage), typeof(PatientDetailPage));
-        Routing.RegisterRoute(nameof(PhysicianDetailPage), typeof(PhysicianDetailPage));
-        Routing.RegisterRoute(nameof(AppointmentDetailPage), typeof(AppointmentDetailPage));
+            // Register routes
+            Routing.RegisterRoute("patients", typeof(PatientsPage));
+            Routing.RegisterRoute("patientEdit", typeof(PatientEditPage));
+            Routing.RegisterRoute("physicians", typeof(PhysiciansPage));
+            Routing.RegisterRoute("physicianEdit", typeof(PhysicianEditPage));
+            Routing.RegisterRoute("appointments", typeof(AppointmentsPage));
+            Routing.RegisterRoute("appointmentEdit", typeof(AppointmentEditPage));
+        }
     }
 }

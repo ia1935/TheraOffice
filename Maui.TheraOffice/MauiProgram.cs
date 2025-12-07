@@ -1,43 +1,48 @@
-﻿using Maui.TheraOffice.Views;
-using Maui.TheraOffice.ViewModels;
+﻿using MAUI.Theraoffice.Services;
+using MAUI.Theraoffice.ViewModels;
+using MAUI.Theraoffice.Views;
+using Microsoft.Extensions.Logging;
 
-namespace Maui.TheraOffice;
-
-public static class MauiProgram
+namespace MAUI.Theraoffice
 {
-	public static MauiApp CreateMauiApp()
-	{
-		var builder = MauiApp.CreateBuilder();
-		builder
-			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
-			{
-				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
+    public static class MauiProgram
+    {
+        public static MauiApp CreateMauiApp()
+        {
+            var builder = MauiApp.CreateBuilder();
+            builder
+                .UseMauiApp<App>()
+                .ConfigureFonts(fonts =>
+                {
+                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                });
 
-		builder.Services.AddSingleton<Maui.TheraOffice.Services.IPatientService, Maui.TheraOffice.Services.PatientService>();
-		builder.Services.AddSingleton<Maui.TheraOffice.Services.IPhysicianService, Maui.TheraOffice.Services.PhysicianService>();
-		builder.Services.AddSingleton<Maui.TheraOffice.Services.IAppointmentService, Maui.TheraOffice.Services.AppointmentService>();
+#if DEBUG
+            builder.Logging.AddDebug();
+#endif
 
-		builder.Services.AddSingleton<PatientListPage>();
-		builder.Services.AddSingleton<PatientListViewModel>();
+            // Register application services
+            builder.Services.AddSingleton<IClinicStore, ClinicStore>();
 
-		builder.Services.AddSingleton<PhysicianListPage>();
-		builder.Services.AddSingleton<PhysicianListViewModel>();
+            // ViewModels
+            builder.Services.AddTransient<PatientsViewModel>();
+            builder.Services.AddTransient<PatientEditViewModel>();
+            builder.Services.AddTransient<PhysiciansViewModel>();
+            builder.Services.AddTransient<PhysicianEditViewModel>();
+            builder.Services.AddTransient<AppointmentsViewModel>();
+            builder.Services.AddTransient<AppointmentEditViewModel>();
 
-		builder.Services.AddSingleton<AppointmentListPage>();
-		builder.Services.AddSingleton<AppointmentListViewModel>();
+            // Pages
+            builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<PatientsPage>();
+            builder.Services.AddTransient<PatientEditPage>();
+            builder.Services.AddTransient<PhysiciansPage>();
+            builder.Services.AddTransient<PhysicianEditPage>();
+            builder.Services.AddTransient<AppointmentsPage>();
+            builder.Services.AddTransient<AppointmentEditPage>();
 
-		builder.Services.AddTransient<PatientDetailPage>();
-		builder.Services.AddTransient<PatientDetailViewModel>();
-
-		builder.Services.AddTransient<PhysicianDetailPage>();
-		builder.Services.AddTransient<PhysicianDetailViewModel>();
-
-		builder.Services.AddTransient<AppointmentDetailPage>();
-		builder.Services.AddTransient<AppointmentDetailViewModel>();
-
-		return builder.Build();
-	}
+            return builder.Build();
+        }
+    }
 }

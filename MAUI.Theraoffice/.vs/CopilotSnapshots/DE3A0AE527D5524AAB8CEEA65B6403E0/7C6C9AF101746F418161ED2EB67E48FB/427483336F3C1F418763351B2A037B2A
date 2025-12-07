@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MAUI.Theraoffice.Views.AppointmentEditPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls"
+    Title="Edit Appointment">
+    <ScrollView>
+        <VerticalStackLayout Padding="12" Spacing="8">
+            <Label Text="Patient Id (paste or choose via enhancement)" />
+            <Entry Text="{Binding Appointment.PatientId}" />
+            <Label Text="Physician Id (paste or choose via enhancement)" />
+            <Entry Text="{Binding Appointment.PhysicianId}" />
+            <Label Text="Start" />
+            <DatePicker Date="{Binding Appointment.Start, Mode=TwoWay}" />
+            <TimePicker Time="{Binding Appointment.Start, Converter={x:Static converters:DateTimeConverters.DateTimeToTimeSpanConverter}}" />
+            <Label Text="End" />
+            <DatePicker Date="{Binding Appointment.End, Mode=TwoWay}" />
+            <TimePicker Time="{Binding Appointment.End, Converter={x:Static converters:DateTimeConverters.DateTimeToTimeSpanConverter}}" />
+            <Editor Text="{Binding Appointment.Notes}" HeightRequest="80" />
+            <HorizontalStackLayout Spacing="8">
+                <Button Text="Save" Clicked="OnSave" />
+                <Button Text="Cancel" Clicked="OnCancel" />
+            </HorizontalStackLayout>
+            <Label x:Name="ErrorLabel" TextColor="Red" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

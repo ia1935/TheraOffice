@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MAUI.Theraoffice.Views.PatientsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Patients">
+    <VerticalStackLayout Padding="12" Spacing="8">
+        <Button Text="Add Patient" Clicked="OnAdd" />
+        <CollectionView x:Name="PatientsList" SelectionMode="Single" SelectionChanged="OnSelect">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout Padding="8" Spacing="4">
+                        <Label Text="{Binding DisplayName}" FontAttributes="Bold" LineBreakMode="TailTruncation"/>
+                        <Label Text="{Binding Address}" FontSize="12" TextColor="#666" LineBreakMode="WordWrap"/>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
