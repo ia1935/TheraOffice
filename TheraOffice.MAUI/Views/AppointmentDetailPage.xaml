@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheraOffice.MAUI.Views.AppointmentDetailPage"
+             Title="{Binding Title}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="Patient" FontAttributes="Bold" />
+            <Picker ItemsSource="{Binding Patients}"
+                    SelectedItem="{Binding SelectedPatient}"
+                    ItemDisplayBinding="{Binding FullName}"
+                    Title="Select a patient" />
+
+            <Label Text="Physician" FontAttributes="Bold" />
+            <Picker ItemsSource="{Binding Physicians}"
+                    SelectedItem="{Binding SelectedPhysician}"
+                    ItemDisplayBinding="{Binding FullName}"
+                    Title="Select a physician" />
+
+            <Label Text="Appointment Date" FontAttributes="Bold" />
+            <DatePicker Date="{Binding AppointmentDate}"
+                       MinimumDate="{x:Static x:DateTime.Now}" />
+
+            <Label Text="Appointment Time" FontAttributes="Bold" />
+            <TimePicker Time="{Binding AppointmentTime}" />
+
+            <Label Text="Duration (minutes)" FontAttributes="Bold" />
+            <Picker ItemsSource="{Binding DurationOptions}"
+                    SelectedIndex="{Binding SelectedDurationIndex}"
+                    Title="Select duration" />
+
+            <Label Text="Reason for Visit" FontAttributes="Bold" />
+            <Editor Text="{Binding Reason}" 
+                    Placeholder="Enter reason for appointment"
+                    HeightRequest="100" />
+
+            <Label Text="Status" FontAttributes="Bold" />
+            <Picker SelectedItem="{Binding Status}">
+                <Picker.Items>
+                    <x:String>Scheduled</x:String>
+                    <x:String>Confirmed</x:String>
+                    <x:String>Completed</x:String>
+                    <x:String>Cancelled</x:String>
+                    <x:String>No-Show</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Frame BackgroundColor="LightYellow" Padding="10" Margin="0,10,0,0">
+                <Label Text="Note: Appointments can only be scheduled Monday-Friday, 8 AM to 5 PM."
+                       FontSize="12"
+                       TextColor="DarkOrange" />
+            </Frame>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,20,0,0">
+                <Button Grid.Column="0"
+                        Text="Save"
+                        Command="{Binding SaveCommand}"
+                        BackgroundColor="{StaticResource Primary}" />
+                <Button Grid.Column="1"
+                        Text="Cancel"
+                        Command="{Binding CancelCommand}"
+                        BackgroundColor="Gray" />
+            </Grid>
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                              IsVisible="{Binding IsBusy}"
+                              HorizontalOptions="Center"
+                              Margin="0,20,0,0" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -30,7 +30,6 @@ namespace Api.WordPress.Database
 
         private Filebase()
         {
-            // store data under the application's base directory so it works across environments
             _root = Path.Combine(AppContext.BaseDirectory, "data");
             _blogRoot = Path.Combine(_root, "Blogs");
 
@@ -54,13 +53,11 @@ namespace Api.WordPress.Database
 
         public Blog AddOrUpdate(Blog blog)
         {
-            //set up a new Id if one doesn't already exist
             if(blog.Id <= 0)
             {
                 blog.Id = LastBlogKey + 1;
             }
 
-            //go to the right place
             string path = Path.Combine(_blogRoot, $"{blog.Id}.json");
 
             //ensure directory exists

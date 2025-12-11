@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:TheraOffice.MAUI.ViewModels"
+             x:Class="TheraOffice.MAUI.Views.PhysiciansPage"
+             Title="{Binding Title}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddPhysicianCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <Grid RowDefinitions="Auto,*" Padding="10">
+        <Button Grid.Row="0" 
+                Text="Refresh" 
+                Command="{Binding LoadPhysiciansCommand}"
+                Margin="0,0,0,10" />
+
+        <CollectionView Grid.Row="1" 
+                        ItemsSource="{Binding Physicians}"
+                        SelectionMode="None">
+            <CollectionView.EmptyView>
+                <Label Text="No physicians found. Tap Add to create a new physician."
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       TextColor="Gray" />
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Delete"
+                                          BackgroundColor="Red"
+                                          Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:PhysiciansViewModel}}, Path=DeletePhysicianCommand}"
+                                          CommandParameter="{Binding .}" />
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <Frame Margin="5" Padding="10" CornerRadius="5" HasShadow="True">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:PhysiciansViewModel}}, Path=SelectPhysicianCommand}"
+                                                     CommandParameter="{Binding .}" />
+                            </Frame.GestureRecognizers>
+                            <Grid RowDefinitions="Auto,Auto,Auto">
+                                <Label Grid.Row="0"
+                                       Text="{Binding FullName}"
+                                       FontSize="18"
+                                       FontAttributes="Bold" />
+                                <Label Grid.Row="1"
+                                       Text="{Binding LicenseNumber, StringFormat='License: {0}'}"
+                                       TextColor="Gray" />
+                                <Label Grid.Row="2"
+                                       Text="{Binding SpecializationsText, StringFormat='Specializations: {0}'}"
+                                       TextColor="Gray"
+                                       FontSize="12" />
+                            </Grid>
+                        </Frame>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <ActivityIndicator Grid.Row="1" 
+                          IsRunning="{Binding IsBusy}"
+                          IsVisible="{Binding IsBusy}"
+                          HorizontalOptions="Center"
+                          VerticalOptions="Center" />
+    </Grid>
+</ContentPage>

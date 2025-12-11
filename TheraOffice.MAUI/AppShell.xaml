@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="TheraOffice.MAUI.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:TheraOffice.MAUI"
+    xmlns:views="clr-namespace:TheraOffice.MAUI.Views"
+    Shell.FlyoutBehavior="Flyout"
+    Title="TheraOffice">
+
+    <FlyoutItem Title="Patients" Icon="dotnet_bot.png">
+        <ShellContent
+            Title="Patient List"
+            ContentTemplate="{DataTemplate views:PatientsPage}"
+            Route="Patients" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Physicians" Icon="dotnet_bot.png">
+        <ShellContent
+            Title="Physician List"
+            ContentTemplate="{DataTemplate views:PhysiciansPage}"
+            Route="Physicians" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Appointments" Icon="dotnet_bot.png">
+        <ShellContent
+            Title="Appointment Schedule"
+            ContentTemplate="{DataTemplate views:AppointmentsPage}"
+            Route="Appointments" />
+    </FlyoutItem>
+
+</Shell>

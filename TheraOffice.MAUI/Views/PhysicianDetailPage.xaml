@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheraOffice.MAUI.Views.PhysicianDetailPage"
+             Title="{Binding Title}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="First Name" FontAttributes="Bold" />
+            <Entry Text="{Binding FirstName}" Placeholder="Enter first name" />
+
+            <Label Text="Last Name" FontAttributes="Bold" />
+            <Entry Text="{Binding LastName}" Placeholder="Enter last name" />
+
+            <Label Text="License Number" FontAttributes="Bold" />
+            <Entry Text="{Binding LicenseNumber}" Placeholder="Enter license number" />
+
+            <Label Text="Graduation Date" FontAttributes="Bold" />
+            <DatePicker Date="{Binding GraduationDate}"
+                       MaximumDate="{x:Static x:DateTime.Now}" />
+
+            <Label Text="Specializations (comma-separated)" FontAttributes="Bold" />
+            <Editor Text="{Binding SpecializationsText}" 
+                    Placeholder="e.g., Internal Medicine, Cardiology"
+                    HeightRequest="80" />
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,20,0,0">
+                <Button Grid.Column="0"
+                        Text="Save"
+                        Command="{Binding SaveCommand}"
+                        BackgroundColor="{StaticResource Primary}" />
+                <Button Grid.Column="1"
+                        Text="Cancel"
+                        Command="{Binding CancelCommand}"
+                        BackgroundColor="Gray" />
+            </Grid>
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                              IsVisible="{Binding IsBusy}"
+                              HorizontalOptions="Center"
+                              Margin="0,20,0,0" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

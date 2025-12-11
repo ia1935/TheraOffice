@@ -1,0 +1,15 @@
+namespace TheraOffice.MAUI.Models
+{
+    public class Physician
+    {
+        public int Id { get; set; }
+        public string FirstName { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
+        public string LicenseNumber { get; set; } = string.Empty;
+        public DateTime GraduationDate { get; set; }
+        public List<string> Specializations { get; set; } = new();
+
+        public string FullName => $"Dr. {FirstName} {LastName}";
+        public string SpecializationsText => string.Join(", ", Specializations);
+    }
+}
